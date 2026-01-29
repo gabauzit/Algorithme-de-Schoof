@@ -1,0 +1,466 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 39.06      0.25     0.25  5083086     0.00     0.00  tors_elem_mul
+ 17.19      0.36     0.11  5531896     0.00     0.00  tors_elem_clears
+ 12.50      0.44     0.08                             _init
+  6.25      0.48     0.04  1052040     0.00     0.00  tors_elem_pow
+  6.25      0.52     0.04   887786     0.00     0.00  tors_elem_copy
+  4.69      0.55     0.03  5531896     0.00     0.00  tors_elem_inits
+  3.12      0.57     0.02   636148     0.00     0.00  tors_elem_mul_sl
+  3.12      0.59     0.02   563164     0.00     0.00  tors_elem_pow_ul
+  3.12      0.61     0.02    76700     0.00     0.01  ell_point_add
+  1.56      0.62     0.01   645782     0.00     0.00  tors_elem_is_zero
+  1.56      0.63     0.01   251130     0.00     0.00  tors_elem_clear
+  1.56      0.64     0.01      170     0.06     3.29  ell_schoof
+  0.00      0.64     0.00   604078     0.00     0.00  tors_elem_sub
+  0.00      0.64     0.00   251130     0.00     0.00  tors_elem_init
+  0.00      0.64     0.00   167664     0.00     0.00  tors_elem_add
+  0.00      0.64     0.00   147207     0.00     0.00  tors_elem_equal
+  0.00      0.64     0.00   134385     0.00     0.00  ell_point_double
+  0.00      0.64     0.00   126555     0.00     0.00  ell_point_equal
+  0.00      0.64     0.00   117121     0.00     0.00  tors_elem_mul_fq
+  0.00      0.64     0.00    96177     0.00     0.00  tors_elem_is_one
+  0.00      0.64     0.00    74894     0.00     0.00  tors_elem_one
+  0.00      0.64     0.00    56991     0.00     0.00  tors_elem_neg
+  0.00      0.64     0.00    29800     0.00     0.00  tors_elem_zero
+  0.00      0.64     0.00     9050     0.00     0.00  list_fq_poly_get
+  0.00      0.64     0.00     5098     0.00     0.09  ell_point_mul
+  0.00      0.64     0.00     2880     0.00     0.00  list_fq_poly_add
+  0.00      0.64     0.00     1980     0.00     0.00  list_ulong_add
+  0.00      0.64     0.00     1160     0.00     0.00  ell_curve_set
+  0.00      0.64     0.00      990     0.00     0.00  ell_point_set_infinity
+  0.00      0.64     0.00      990     0.00     0.00  list_fq_poly_len
+  0.00      0.64     0.00      990     0.00     0.00  tors_ring_set
+  0.00      0.64     0.00      990     0.00     0.00  update_list_div_poly
+  0.00      0.64     0.00      680     0.00     0.00  ell_point_clear
+  0.00      0.64     0.00      680     0.00     0.00  ell_point_init
+  0.00      0.64     0.00      340     0.00     0.00  ell_curve_clear
+  0.00      0.64     0.00      340     0.00     0.00  list_ulong_clear
+  0.00      0.64     0.00      340     0.00     0.00  list_ulong_get_tab
+  0.00      0.64     0.00      340     0.00     0.00  list_ulong_init
+  0.00      0.64     0.00      170     0.00     0.00  ell_curve_init
+  0.00      0.64     0.00      170     0.00     0.00  ell_curve_init_set
+  0.00      0.64     0.00      170     0.00     0.00  list_fq_poly_clear
+  0.00      0.64     0.00      170     0.00     0.00  list_fq_poly_init
+  0.00      0.64     0.00      170     0.00     0.00  list_ulong_len
+  0.00      0.64     0.00      170     0.00     3.29  schoof
+  0.00      0.64     0.00      170     0.00     0.00  tors_elem_set_x
+  0.00      0.64     0.00      170     0.00     0.00  tors_elem_set_y
+  0.00      0.64     0.00      170     0.00     0.00  tors_ring_clear
+  0.00      0.64     0.00      170     0.00     0.00  tors_ring_init
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 1.56% of 0.64 seconds
+
+index % time    self  children    called     name
+                0.01    0.55     170/170         schoof [2]
+[1]     87.5    0.01    0.55     170         ell_schoof [1]
+                0.00    0.48    5098/5098        ell_point_mul [4]
+                0.00    0.05    9206/76700       ell_point_add [5]
+                0.00    0.01    5098/126555      ell_point_equal [9]
+                0.00    0.01   20392/1052040     tors_elem_pow [8]
+                0.00    0.00     727/563164      tors_elem_pow_ul [6]
+                0.00    0.00   11035/887786      tors_elem_copy [12]
+                0.00    0.00     727/134385      ell_point_double [17]
+                0.00    0.00     850/5531896     tors_elem_clears [10]
+                0.00    0.00     850/5531896     tors_elem_inits [13]
+                0.00    0.00     151/645782      tors_elem_is_zero [15]
+                0.00    0.00   15294/74894       tors_elem_one [24]
+                0.00    0.00    1980/1980        list_ulong_add [29]
+                0.00    0.00     990/990         update_list_div_poly [34]
+                0.00    0.00     990/990         tors_ring_set [33]
+                0.00    0.00     990/29800       tors_elem_zero [26]
+                0.00    0.00     990/990         ell_point_set_infinity [31]
+                0.00    0.00     680/680         ell_point_init [36]
+                0.00    0.00     680/680         ell_point_clear [35]
+                0.00    0.00     340/340         list_ulong_init [40]
+                0.00    0.00     340/340         list_ulong_get_tab [39]
+                0.00    0.00     340/340         list_ulong_clear [38]
+                0.00    0.00     170/170         list_fq_poly_init [44]
+                0.00    0.00     170/170         tors_ring_init [49]
+                0.00    0.00     170/170         tors_elem_set_x [46]
+                0.00    0.00     170/170         tors_elem_set_y [47]
+                0.00    0.00     170/170         list_ulong_len [45]
+                0.00    0.00     170/170         list_fq_poly_clear [43]
+                0.00    0.00     170/170         tors_ring_clear [48]
+-----------------------------------------------
+                0.00    0.56     170/170         main [3]
+[2]     87.5    0.00    0.56     170         schoof [2]
+                0.01    0.55     170/170         ell_schoof [1]
+                0.00    0.00     170/170         ell_curve_init_set [42]
+                0.00    0.00     170/340         ell_curve_clear [37]
+-----------------------------------------------
+                                                 <spontaneous>
+[3]     87.5    0.00    0.56                 main [3]
+                0.00    0.56     170/170         schoof [2]
+-----------------------------------------------
+                0.00    0.48    5098/5098        ell_schoof [1]
+[4]     74.9    0.00    0.48    5098         ell_point_mul [4]
+                0.02    0.37   67494/76700       ell_point_add [5]
+                0.00    0.08  116394/563164      tors_elem_pow_ul [6]
+                0.00    0.00  133658/134385      ell_point_double [17]
+                0.00    0.00   26689/887786      tors_elem_copy [12]
+                0.00    0.00    5098/5531896     tors_elem_clears [10]
+                0.00    0.00    5098/5531896     tors_elem_inits [13]
+                0.00    0.00   22362/29800       tors_elem_zero [26]
+                0.00    0.00   10196/74894       tors_elem_one [24]
+-----------------------------------------------
+                0.00    0.05    9206/76700       ell_schoof [1]
+                0.02    0.37   67494/76700       ell_point_mul [4]
+[5]     68.7    0.02    0.42   76700         ell_point_add [5]
+                0.00    0.25  121457/126555      ell_point_equal [9]
+                0.01    0.11  151629/563164      tors_elem_pow_ul [6]
+                0.02    0.01  404344/5083086     tors_elem_mul [7]
+                0.02    0.00  498699/887786      tors_elem_copy [12]
+                0.00    0.00  208620/5531896     tors_elem_clears [10]
+                0.00    0.00  141166/645782      tors_elem_is_zero [15]
+                0.00    0.00   50543/636148      tors_elem_mul_sl [14]
+                0.00    0.00  208620/5531896     tors_elem_inits [13]
+                0.00    0.00  252715/604078      tors_elem_sub [18]
+                0.00    0.00   96177/96177       tors_elem_is_one [23]
+                0.00    0.00   56991/56991       tors_elem_neg [25]
+                0.00    0.00   50543/167664      tors_elem_add [20]
+                0.00    0.00   12896/74894       tors_elem_one [24]
+                0.00    0.00    6448/29800       tors_elem_zero [26]
+-----------------------------------------------
+                              585605             tors_elem_pow_ul [6]
+                0.00    0.00     727/563164      ell_schoof [1]
+                0.00    0.08  116394/563164      ell_point_mul [4]
+                0.01    0.11  151629/563164      ell_point_add [5]
+                0.01    0.21  294414/563164      ell_point_equal [9]
+[6]     65.7    0.02    0.40  563164+585605  tors_elem_pow_ul [6]
+                0.04    0.29 1031648/1052040     tors_elem_pow [8]
+                0.02    0.01  351363/5083086     tors_elem_mul [7]
+                0.02    0.00  585605/636148      tors_elem_mul_sl [14]
+                0.02    0.00  351363/887786      tors_elem_copy [12]
+                0.00    0.00  234242/5531896     tors_elem_clears [10]
+                0.00    0.00  234242/5531896     tors_elem_inits [13]
+                0.00    0.00  351363/604078      tors_elem_sub [18]
+                0.00    0.00  117121/117121      tors_elem_mul_fq [22]
+                0.00    0.00  117121/167664      tors_elem_add [20]
+                              585605             tors_elem_pow_ul [6]
+-----------------------------------------------
+                0.01    0.01  294414/5083086     ell_point_equal [9]
+                0.02    0.01  351363/5083086     tors_elem_pow_ul [6]
+                0.02    0.01  404344/5083086     ell_point_add [5]
+                0.20    0.10 4032965/5083086     tors_elem_pow [8]
+[7]     59.2    0.25    0.13 5083086         tors_elem_mul [7]
+                0.10    0.00 5083086/5531896     tors_elem_clears [10]
+                0.03    0.00 5083086/5531896     tors_elem_inits [13]
+-----------------------------------------------
+                0.00    0.01   20392/1052040     ell_schoof [1]
+                0.04    0.29 1031648/1052040     tors_elem_pow_ul [6]
+[8]     53.2    0.04    0.30 1052040         tors_elem_pow [8]
+                0.20    0.10 4032965/5083086     tors_elem_mul [7]
+-----------------------------------------------
+                0.00    0.01    5098/126555      ell_schoof [1]
+                0.00    0.25  121457/126555      ell_point_add [5]
+[9]     39.9    0.00    0.26  126555         ell_point_equal [9]
+                0.01    0.21  294414/563164      tors_elem_pow_ul [6]
+                0.01    0.01  294414/5083086     tors_elem_mul [7]
+                0.01    0.00  251130/251130      tors_elem_clear [16]
+                0.00    0.00  252959/645782      tors_elem_is_zero [15]
+                0.00    0.00  251130/251130      tors_elem_init [19]
+                0.00    0.00  147207/147207      tors_elem_equal [21]
+-----------------------------------------------
+                0.00    0.00     850/5531896     ell_schoof [1]
+                0.00    0.00    5098/5531896     ell_point_mul [4]
+                0.00    0.00  208620/5531896     ell_point_add [5]
+                0.00    0.00  234242/5531896     tors_elem_pow_ul [6]
+                0.10    0.00 5083086/5531896     tors_elem_mul [7]
+[10]    17.2    0.11    0.00 5531896         tors_elem_clears [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]    12.5    0.08    0.00                 _init [11]
+-----------------------------------------------
+                0.00    0.00   11035/887786      ell_schoof [1]
+                0.00    0.00   26689/887786      ell_point_mul [4]
+                0.02    0.00  351363/887786      tors_elem_pow_ul [6]
+                0.02    0.00  498699/887786      ell_point_add [5]
+[12]     6.2    0.04    0.00  887786         tors_elem_copy [12]
+-----------------------------------------------
+                0.00    0.00     850/5531896     ell_schoof [1]
+                0.00    0.00    5098/5531896     ell_point_mul [4]
+                0.00    0.00  208620/5531896     ell_point_add [5]
+                0.00    0.00  234242/5531896     tors_elem_pow_ul [6]
+                0.03    0.00 5083086/5531896     tors_elem_mul [7]
+[13]     4.7    0.03    0.00 5531896         tors_elem_inits [13]
+-----------------------------------------------
+                0.00    0.00   50543/636148      ell_point_add [5]
+                0.02    0.00  585605/636148      tors_elem_pow_ul [6]
+[14]     3.1    0.02    0.00  636148         tors_elem_mul_sl [14]
+-----------------------------------------------
+                0.00    0.00     151/645782      ell_schoof [1]
+                0.00    0.00  141166/645782      ell_point_add [5]
+                0.00    0.00  251506/645782      ell_point_double [17]
+                0.00    0.00  252959/645782      ell_point_equal [9]
+[15]     1.6    0.01    0.00  645782         tors_elem_is_zero [15]
+-----------------------------------------------
+                0.01    0.00  251130/251130      ell_point_equal [9]
+[16]     1.6    0.01    0.00  251130         tors_elem_clear [16]
+-----------------------------------------------
+                0.00    0.00     727/134385      ell_schoof [1]
+                0.00    0.00  133658/134385      ell_point_mul [4]
+[17]     0.6    0.00    0.00  134385         ell_point_double [17]
+                0.00    0.00  251506/645782      tors_elem_is_zero [15]
+                0.00    0.00   34528/74894       tors_elem_one [24]
+-----------------------------------------------
+                0.00    0.00  252715/604078      ell_point_add [5]
+                0.00    0.00  351363/604078      tors_elem_pow_ul [6]
+[18]     0.0    0.00    0.00  604078         tors_elem_sub [18]
+-----------------------------------------------
+                0.00    0.00  251130/251130      ell_point_equal [9]
+[19]     0.0    0.00    0.00  251130         tors_elem_init [19]
+-----------------------------------------------
+                0.00    0.00   50543/167664      ell_point_add [5]
+                0.00    0.00  117121/167664      tors_elem_pow_ul [6]
+[20]     0.0    0.00    0.00  167664         tors_elem_add [20]
+-----------------------------------------------
+                0.00    0.00  147207/147207      ell_point_equal [9]
+[21]     0.0    0.00    0.00  147207         tors_elem_equal [21]
+-----------------------------------------------
+                0.00    0.00  117121/117121      tors_elem_pow_ul [6]
+[22]     0.0    0.00    0.00  117121         tors_elem_mul_fq [22]
+-----------------------------------------------
+                0.00    0.00   96177/96177       ell_point_add [5]
+[23]     0.0    0.00    0.00   96177         tors_elem_is_one [23]
+-----------------------------------------------
+                0.00    0.00    1980/74894       ell_point_set_infinity [31]
+                0.00    0.00   10196/74894       ell_point_mul [4]
+                0.00    0.00   12896/74894       ell_point_add [5]
+                0.00    0.00   15294/74894       ell_schoof [1]
+                0.00    0.00   34528/74894       ell_point_double [17]
+[24]     0.0    0.00    0.00   74894         tors_elem_one [24]
+-----------------------------------------------
+                0.00    0.00   56991/56991       ell_point_add [5]
+[25]     0.0    0.00    0.00   56991         tors_elem_neg [25]
+-----------------------------------------------
+                0.00    0.00     990/29800       ell_schoof [1]
+                0.00    0.00    6448/29800       ell_point_add [5]
+                0.00    0.00   22362/29800       ell_point_mul [4]
+[26]     0.0    0.00    0.00   29800         tors_elem_zero [26]
+-----------------------------------------------
+                0.00    0.00    9050/9050        update_list_div_poly [34]
+[27]     0.0    0.00    0.00    9050         list_fq_poly_get [27]
+-----------------------------------------------
+                0.00    0.00    2880/2880        update_list_div_poly [34]
+[28]     0.0    0.00    0.00    2880         list_fq_poly_add [28]
+-----------------------------------------------
+                0.00    0.00    1980/1980        ell_schoof [1]
+[29]     0.0    0.00    0.00    1980         list_ulong_add [29]
+-----------------------------------------------
+                0.00    0.00     170/1160        ell_curve_init_set [42]
+                0.00    0.00     990/1160        tors_ring_set [33]
+[30]     0.0    0.00    0.00    1160         ell_curve_set [30]
+-----------------------------------------------
+                0.00    0.00     990/990         ell_schoof [1]
+[31]     0.0    0.00    0.00     990         ell_point_set_infinity [31]
+                0.00    0.00    1980/74894       tors_elem_one [24]
+-----------------------------------------------
+                0.00    0.00     990/990         update_list_div_poly [34]
+[32]     0.0    0.00    0.00     990         list_fq_poly_len [32]
+-----------------------------------------------
+                0.00    0.00     990/990         ell_schoof [1]
+[33]     0.0    0.00    0.00     990         tors_ring_set [33]
+                0.00    0.00     990/1160        ell_curve_set [30]
+-----------------------------------------------
+                0.00    0.00     990/990         ell_schoof [1]
+[34]     0.0    0.00    0.00     990         update_list_div_poly [34]
+                0.00    0.00    9050/9050        list_fq_poly_get [27]
+                0.00    0.00    2880/2880        list_fq_poly_add [28]
+                0.00    0.00     990/990         list_fq_poly_len [32]
+-----------------------------------------------
+                0.00    0.00     680/680         ell_schoof [1]
+[35]     0.0    0.00    0.00     680         ell_point_clear [35]
+-----------------------------------------------
+                0.00    0.00     680/680         ell_schoof [1]
+[36]     0.0    0.00    0.00     680         ell_point_init [36]
+-----------------------------------------------
+                0.00    0.00     170/340         tors_ring_clear [48]
+                0.00    0.00     170/340         schoof [2]
+[37]     0.0    0.00    0.00     340         ell_curve_clear [37]
+-----------------------------------------------
+                0.00    0.00     340/340         ell_schoof [1]
+[38]     0.0    0.00    0.00     340         list_ulong_clear [38]
+-----------------------------------------------
+                0.00    0.00     340/340         ell_schoof [1]
+[39]     0.0    0.00    0.00     340         list_ulong_get_tab [39]
+-----------------------------------------------
+                0.00    0.00     340/340         ell_schoof [1]
+[40]     0.0    0.00    0.00     340         list_ulong_init [40]
+-----------------------------------------------
+                0.00    0.00     170/170         tors_ring_init [49]
+[41]     0.0    0.00    0.00     170         ell_curve_init [41]
+-----------------------------------------------
+                0.00    0.00     170/170         schoof [2]
+[42]     0.0    0.00    0.00     170         ell_curve_init_set [42]
+                0.00    0.00     170/1160        ell_curve_set [30]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[43]     0.0    0.00    0.00     170         list_fq_poly_clear [43]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[44]     0.0    0.00    0.00     170         list_fq_poly_init [44]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[45]     0.0    0.00    0.00     170         list_ulong_len [45]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[46]     0.0    0.00    0.00     170         tors_elem_set_x [46]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[47]     0.0    0.00    0.00     170         tors_elem_set_y [47]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[48]     0.0    0.00    0.00     170         tors_ring_clear [48]
+                0.00    0.00     170/340         ell_curve_clear [37]
+-----------------------------------------------
+                0.00    0.00     170/170         ell_schoof [1]
+[49]     0.0    0.00    0.00     170         tors_ring_init [49]
+                0.00    0.00     170/170         ell_curve_init [41]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2024 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [11] _init                  [44] list_fq_poly_init      [15] tors_elem_is_zero
+  [37] ell_curve_clear        [32] list_fq_poly_len        [7] tors_elem_mul
+  [41] ell_curve_init         [29] list_ulong_add         [22] tors_elem_mul_fq
+  [42] ell_curve_init_set     [38] list_ulong_clear       [14] tors_elem_mul_sl
+  [30] ell_curve_set          [39] list_ulong_get_tab     [25] tors_elem_neg
+   [5] ell_point_add          [40] list_ulong_init        [24] tors_elem_one
+  [35] ell_point_clear        [45] list_ulong_len          [8] tors_elem_pow
+  [17] ell_point_double        [2] schoof                  [6] tors_elem_pow_ul
+   [9] ell_point_equal        [20] tors_elem_add          [46] tors_elem_set_x
+  [36] ell_point_init         [16] tors_elem_clear        [47] tors_elem_set_y
+   [4] ell_point_mul          [10] tors_elem_clears       [18] tors_elem_sub
+  [31] ell_point_set_infinity [12] tors_elem_copy         [26] tors_elem_zero
+   [1] ell_schoof             [21] tors_elem_equal        [48] tors_ring_clear
+  [28] list_fq_poly_add       [19] tors_elem_init         [49] tors_ring_init
+  [43] list_fq_poly_clear     [13] tors_elem_inits        [33] tors_ring_set
+  [27] list_fq_poly_get       [23] tors_elem_is_one       [34] update_list_div_poly
