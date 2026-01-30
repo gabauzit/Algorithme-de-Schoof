@@ -77,3 +77,21 @@ mais dans ce cas il faut inclure <stdio.h> et <stdlib.h>.
 - Rajouter des condition rop != op dans les fonctions qui évitent l'aliasing par des copies, ça permet d'éviter des lourdes copies inutiles, ou juste faire un fq_swap() plutot
 
 - Problème dans le makefile, `make` affiche les paramètres de tests alors que ça devrait pas.
+
+Commande pour gprof :
+```
+# Compiler avec -pg
+make clean
+make CFLAGS="-Wall -Wextra -O2 -std=c11 -Iinclude -Wno-deprecated-declarations -pg" \
+     LDFLAGS="-lflint -lgmp -lmpfr -pg" \
+     NUM_TRIALS=1000 MIN_BITS=16 MAX_BITS=32 \
+     test-perf
+
+# Exécuter
+./bin/test_perf
+
+# Analyser
+gprof ./bin/test_perf gmon.out > profile_report.txt
+cat profile_report.txt
+```
+Penser à créer tous les fichiers objets et exécutables avant de commit
