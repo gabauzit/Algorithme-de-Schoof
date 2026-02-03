@@ -2,6 +2,7 @@
 
 /**
  * On utilise #E(F_q) = q + 1 + \sum_{x\in F_q} is_square(x^3+ax+b, q), q est premier
+ * c.f section 3.1 du rapport
  */
 void naive_num_of_points(fmpz_t res, const fq_t a, const fq_t b, const fq_ctx_t ctx) {
     fmpz_t q;
@@ -20,6 +21,7 @@ void naive_num_of_points(fmpz_t res, const fq_t a, const fq_t b, const fq_ctx_t 
     fmpz_init(i);
 
     for(fmpz_zero(i); fmpz_cmp(q, i) > 0; fmpz_add_ui(i, i, 1)) {
+        // temp1 = x^3 + a*x + b
         fq_set_fmpz(x, i, ctx);
         fq_pow_ui(temp1, x, 3, ctx);
         fq_mul(temp2, a, x, ctx);
@@ -38,8 +40,8 @@ void naive_num_of_points(fmpz_t res, const fq_t a, const fq_t b, const fq_ctx_t 
 
 int main() {    
     FILE* file = fopen("./results/results_compare.csv", "w");
-    fprintf(file, "NUM_TRIALS, MIN_BITS, MAX_BITS\n");
-    fprintf(file, "%i, %i, %i\n", NUM_TRIALS, MIN_BITS, MAX_BITS);
+    fprintf(file, "NUM_TRIALS,MIN_BITS,MAX_BITS\n");
+    fprintf(file, "%i,%i,%i\n", NUM_TRIALS, MIN_BITS, MAX_BITS);
     fprintf(file, "q,a,b,naive,schoof\n"); // Format du fichier .csv
 
     flint_rand_t state;

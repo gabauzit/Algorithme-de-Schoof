@@ -4,11 +4,6 @@
 /* PRIMITIVES DU TYPE list_ulong_t */
 /***********************************/
 
-/**
- * Initialise une liste de type list_ulong_t. Il n'y a pas besoin d'allocation dynamique car, selon la
- * convention des nouveaux types de FLINT adoptée ici, list_ulong_t est un tableau de taille 1 donc la
- * mémoire est allouée dès la déclaration de la liste.
- */
 void list_ulong_init(list_ulong_t list) {
     list->head = NULL;
     list->tail = NULL;
@@ -49,21 +44,6 @@ void list_ulong_add(list_ulong_t list, const ulong t) {
 }
 
 /**
- * Renvoie l'élément liste d'indice index. Si index est plus grand que la longueur de la liste, renvoie
- * le dernier élément de la liste.
- * GESTION D'ERREUR SI LA LISTE EST VIDE ???
- */
-ulong list_ulong_get(list_ulong_t list, const ulong index) {
-    cell_ulong_t* ptr = list->head;
-
-    while(ptr != NULL && ptr->index != index) {
-        ptr = ptr->next;
-    }
-
-    return ptr->t;
-}
-
-/**
  * Convertit les len premiers éléments de la liste dans le tableau tab. Si list contient moins de len éléments,
  * toute la liste est copiée dans tab.
  */
@@ -80,11 +60,6 @@ void list_ulong_get_tab(ulong* tab, const list_ulong_t list, const ulong len) {
 /* PRIMITIVES DU TYPE list_fq_poly_t */
 /*************************************/
 
-/**
- * Initialise une liste de type list_fq_poly_t. Il n'y a pas besoin d'allocation dynamique car, selon la
- * convention des nouveaux types de FLINT adoptée ici, list_fq_poly_t est un tableau de taille 1 donc la
- * mémoire est allouée dès la déclaration de la liste.
- */
 void list_fq_poly_init(list_fq_poly_t list) {
     list->head = NULL;
     list->tail = NULL;
@@ -110,10 +85,15 @@ ulong list_fq_poly_len(const list_fq_poly_t list) {
     return (list->tail == NULL) ? 0 : list->tail->index + 1;
 }
 
-void list_fq_poly_add(list_fq_poly_t list, const fq_poly_t fq_poly, const fq_ctx_t ctx) {
+/**
+ * Attention : par rapport à son équivalent pour le type list_ulong_t ici l'élément à rajouter n'est pas
+ * immuable à cause de fq_poly_swap(). Cette fonction sera appelée uniquement pour le calcul des polynômes de
+ * division auquel cas on rajoutera une variable qui était initialement temporaire, ceci évite une copie coûteuse.
+ */
+void list_fq_poly_add(list_fq_poly_t list, fq_poly_t poly, const fq_ctx_t ctx) {
     cell_fq_poly_t* ptr = (cell_fq_poly_t*)malloc(sizeof(cell_fq_poly_t));
     fq_poly_init(ptr->poly, ctx);
-    fq_poly_set(ptr->poly, fq_poly, ctx);
+    fq_poly_swap(ptr->poly, poly, ctx);
     ptr->next = NULL;
     
     if (list->head == NULL) {
@@ -128,15 +108,18 @@ void list_fq_poly_add(list_fq_poly_t list, const fq_poly_t fq_poly, const fq_ctx
 }
 
 /**
- * Renvoie l'élément liste d'indice index. Si index est plus grand que la longueur de la liste, renvoie
- * le dernier élément de la liste.
- * GESTION D'ERREUR SI list EST VIDE ???
+ * Renvoie l'élément de list d'indice index. Si list est de taille inférieure à index, génère une erreur.
  */
-fq_poly_struct* list_fq_poly_get(list_fq_poly_t list, const ulong index) {
+fq_poly_struct* list_fq_poly_get(const list_fq_poly_t list, const ulong index) {
     cell_fq_poly_t* ptr = list->head;
 
     while(ptr != NULL && ptr->index != index) {
         ptr = ptr->next;
+    }
+
+    if (ptr == NULL) {
+        fprintf(stderr, "Error: invalid index\n");
+        abort();
     }
 
     return ptr->poly;

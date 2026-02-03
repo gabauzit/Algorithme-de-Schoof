@@ -2,8 +2,8 @@
 
 int main() {    
     FILE* file = fopen("./results/results_perf.csv", "w");
-    fprintf(file, "NUM_TRIALS, MIN_BITS, MAX_BITS\n");
-    fprintf(file, "%i, %i, %i\n", NUM_TRIALS, MIN_BITS, MAX_BITS);
+    fprintf(file, "NUM_TRIALS,MIN_BITS,MAX_BITS\n");
+    fprintf(file, "%i,%i,%i\n", NUM_TRIALS, MIN_BITS, MAX_BITS);
     fprintf(file, "q,a,b,time (s)\n"); // Format du fichier .csv
 
     flint_rand_t state;
@@ -70,4 +70,12 @@ int main() {
     printf("\n 🎉 Tests terminés ! 🎉\n");
 
     fclose(file);
+
+    printf("\n 📊 Génération du graphique...\n");
+
+    if (system("python results/graph_results_perf.py") != 0) {
+        fprintf(stderr, "Erreur lors de l'exécution du script Python.\n");
+    }
+
+
 }

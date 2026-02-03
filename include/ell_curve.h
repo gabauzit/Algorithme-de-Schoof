@@ -6,6 +6,10 @@
 #include <flint/fq.h>
 #include <flint/fmpz.h>
 
+/**
+ * Section 2 du rapport.
+ */
+
 // Représente la courbe elliptique sous forme de Weierstrass y^2 = x^3 + a*x + b
 typedef struct {
     fq_t a;
@@ -17,6 +21,5 @@ typedef ell_curve_struct ell_curve_t[1]; // On adopte la convention de FLINT sur
 void ell_curve_init(ell_curve_t, const fq_ctx_t);
 void ell_curve_clear(ell_curve_t, const fq_ctx_t);
 int ell_curve_set(ell_curve_t, const fq_t, const fq_t, const fq_ctx_t);
-int ell_curve_init_set(ell_curve_t, const fq_t, const fq_t, const fq_ctx_t);
 
 #endif

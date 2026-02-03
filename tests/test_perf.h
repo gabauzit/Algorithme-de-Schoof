@@ -6,7 +6,7 @@
 #endif
 
 #ifndef MIN_BITS
-#define MIN_BITS 8 // IL FAUT QUE CA SOIT SUPERIEUR OU EGALE A 4, SINON FLINT PEUT NE PAS SUPPORTER
+#define MIN_BITS 8 // Il faut que MIN_BITS soit supérieur à 4, sinon FLINT peut ne pas supporter
 #endif
 
 #ifndef MAX_BITS
@@ -23,13 +23,10 @@
 #include "ell_curve.h"
 #include "schoof.h"
 
-// Il faut se rappeler que les tests se font que sur des nombres premiers.
+/**
+ * Les tests ne sont effectués que pour q premier.
+ */
 
-// ATTENTION, IL PEUT Y AVOIR UN NOMBRE DE BITS Où LA BOUCLE QUI CHERCHE DES COEFFICIENTS EST INFINIE
-// IL FAUT DEJA AU MOINS 3 BITS POUR EVITER 2 ET 3
-
-void naive_num_of_points(fmpz_t, const fq_t, const fq_t, const fq_ctx_t);
-int test_schoof(const ell_curve_t, const fq_ctx_t);
 int main();
 
 #endif

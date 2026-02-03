@@ -24,13 +24,13 @@ TEST_PERF_SOURCES = test_perf.c
 TEST_PERF_OBJECTS = $(patsubst %.c,$(OBJ_DIR)/%.o,$(TEST_PERF_SOURCES))
 
 # Exécutables
-TEST_COMPARE_BIN = $(BIN_DIR)/test_schoof
+TEST_COMPARE_BIN = $(BIN_DIR)/test_compare
 TEST_PERF_BIN = $(BIN_DIR)/test_perf
 
 # Paramètres de tests par défaut
-NUM_TRIALS ?= 3
+NUM_TRIALS ?= 5
 MIN_BITS ?= 8
-MAX_BITS ?= 16
+MAX_BITS ?= 32
 
 # Condition MIN_BITS supérieur à 4
 ifeq ($(shell test $(MIN_BITS) -lt 4; echo $$?),0)
@@ -38,7 +38,7 @@ ifeq ($(shell test $(MIN_BITS) -lt 4; echo $$?),0)
 endif
 
 # Condition MAX_BITS >= MIN_BITS
-ifeq ($(shell test-compare $(MAX_BITS) -lt $(MIN_BITS); echo $$?),0)
+ifeq ($(shell test $(MAX_BITS) -lt $(MIN_BITS); echo $$?),0)
     $(error ⚠️  MAX_BITS doit être supérieur à MIN_BITS)
 endif
 
@@ -151,7 +151,7 @@ test-perf: force-test-perf-rebuild $(TEST_PERF_BIN)
 clean:
 	@echo "$(YELLOW)Nettoyage des fichiers objets et exécutables...$(NC)"
 	@rm -rf $(OBJ_DIR) $(BIN_DIR)
-	@echo "$(GREEN)Nettoyage terminé$(NC)"
+	@echo "$(GREEN)✓ Nettoyage terminé$(NC)"
 
 # Affichage de l'aide
 .PHONY: help
@@ -162,8 +162,8 @@ help:
 	@echo ""
 	@echo "$(GREEN)Commandes disponibles :$(NC)"
 	@echo "  $(YELLOW)make $(NC)ou $(YELLOW)make all$(NC)      - Compile le projet"
-	@echo "  $(YELLOW)make test-compare$(NC)     - Comparaison avec une méthode naïve (3 essais, 8-16 bits)"
-	@echo "  $(YELLOW)make test-perf$(NC)        - Mesure le temps d'exécution (5 essais, 8-64 bits)"
+	@echo "  $(YELLOW)make test-compare$(NC)     - Comparaison avec une méthode naïve"
+	@echo "  $(YELLOW)make test-perf$(NC)        - Mesure le temps d'exécution"
 	@echo "  $(YELLOW)make clean$(NC)            - Supprime les fichiers objets et exécutables"
 	@echo "  $(YELLOW)make help$(NC)             - Affiche cette aide"
 	@echo ""
@@ -172,8 +172,8 @@ help:
 	@echo "  $(YELLOW)MIN_BITS$(NC)    - Taille minimale en bits"
 	@echo "  $(YELLOW)MAX_BITS$(NC)    - Taille maximale en bits"
 	@echo ""
-	@echo "$(GREEN)Exemple :$(NC)"
+	@echo "$(GREEN)Exemples :$(NC)"
 	@echo "  $(YELLOW)make test-compare NUM_TRIALS=2 MIN_BITS=16 MAX_BITS=32$(NC)"
-	@echo "  $(YELLOW)make test-perf NUM_TRIALS=10 MIN_BITS=16 MAX_BITS=32$(NC)"
+	@echo "  $(YELLOW)make test-perf NUM_TRIALS=10 MIN_BITS=16 MAX_BITS=64$(NC)"
 	@echo ""
-	@echo "$(RED)Note: MIN_BITS doit valoir au moins 4$(NC)"
+	@echo "$(RED)Note : MIN_BITS doit valoir au moins 4$(NC)"

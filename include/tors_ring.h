@@ -7,9 +7,14 @@
 #include <flint/fq.h>
 #include <flint/fq_poly.h>
 #include <flint/fmpz.h>
+#include <flint/longlong.h>
 #include "ell_curve.h"
 
-// Représente l'anneau quotient F_q[x,y]/(psi(x), y^2-f(x)) si y^2=f(x) définit curve
+/**
+ * Section 4.1 du rapport.
+ */
+
+// Représente l'anneau quotient F_q[x,y]/(psi(x), y^2-x^3-ax-b)) si y^2 = x^3+ax+b définit curve
 typedef struct {
     ell_curve_t curve;
     fq_poly_t psi;
@@ -47,6 +52,7 @@ void tors_elem_one(tors_elem_t, const fq_ctx_t);
 void tors_elem_set_x(tors_elem_t, const fq_ctx_t);
 void tors_elem_set_y(tors_elem_t, const fq_ctx_t);
 void tors_elem_copy(tors_elem_t, const tors_elem_t, const fq_ctx_t);
+void tors_elem_swap(tors_elem_t, tors_elem_t, const fq_ctx_t);
 int tors_elem_equal(const tors_elem_t, const tors_elem_t, const fq_ctx_t);
 int tors_elem_is_zero(const tors_elem_t, const fq_ctx_t);
 int tors_elem_is_one(const tors_elem_t, const fq_ctx_t);

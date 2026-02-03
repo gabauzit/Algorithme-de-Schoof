@@ -17,7 +17,7 @@ void ell_curve_clear(ell_curve_t E, const fq_ctx_t ctx) {
  * sinon laisse l'entrée inchangée est renvoie EXIT_FAILURE.
  */
 int ell_curve_set(ell_curve_t E, const fq_t a, const fq_t b, const fq_ctx_t ctx) {
-    // On vérifie si le discriminant 4*a^3 + 27*b^2 est non-nul
+    // On vérifie que le discriminant 4*a^3 + 27*b^2 est non-nul
     fq_t disc, temp;
     fq_init(disc, ctx);
     fq_init(temp, ctx);
@@ -40,21 +40,4 @@ int ell_curve_set(ell_curve_t E, const fq_t a, const fq_t b, const fq_ctx_t ctx)
     fq_clear(temp, ctx);
 
     return success;
-}
-
-/**
- * Initialise et définit les paramètres d'une courbe elliptique.
- * 
- * Si les paramètres d'entrée vérifient les conditions requise, attribue les nouveaux paramètres à la courbe
- * elliptique et renvoie EXIT_SUCCESS, sinon laisse l'entrée inchangée est renvoie EXIT_FAILURE.
- */
-int ell_curve_init_set(ell_curve_t E, const fq_t a, const fq_t b, const fq_ctx_t ctx) {
-    ell_curve_init(E, ctx);
-
-    if (ell_curve_set(E, a, b, ctx) == EXIT_FAILURE) {
-        ell_curve_clear(E, ctx);
-        return EXIT_FAILURE;
-    }
-
-    return EXIT_SUCCESS;
 }
