@@ -32,8 +32,8 @@ with open(CSV_FILE, newline='') as csvfile:
             q_values.append(q)
             times.append(t)
 
-q_values = np.array(q_values)
-times = np.array(times)
+q_values = np.array(q_values, dtype=float)
+times = np.array(times, dtype=float)
 
 loglogq = np.log(np.log(q_values))
 

@@ -149,7 +149,7 @@ void update_list_div_poly(list_fq_poly_t list_psi, const ell_curve_t E, const ul
 
 /**
  * Algorithme de Schoof.
- * c.f Algorithme ??? du rapport.
+ * c.f Section 5 du rapport.
  */
 void ell_schoof(fmpz_t res, const ell_curve_t E, const fq_ctx_t ctx) {
     // Initialisation de A
